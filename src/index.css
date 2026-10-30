@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cosmic-bg: #04050b;
+  --gold: #c8a86a;
+  --gold-soft: #d8c08a;
+  --cyan: #6fd0e6;
+  --cyan-soft: #a8e3f0;
+  --violet: #6a5cb0;
+  --ink: #0a0c18;
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--cosmic-bg);
+  color: #e8ecf5;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+}
+
+/* Serif display for the landing + panel titles */
+.font-display {
+  font-family: 'Cormorant Garamond', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.font-mono-cosmic {
+  font-family: 'JetBrains Mono', 'SFMono-Regular', ui-monospace, Menlo, monospace;
+}
+
+/* Subtle gold hairline gradient text */
+.text-gold-gradient {
+  background: linear-gradient(180deg, #e8d29a 0%, #c8a86a 60%, #9a7d44 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-cosmic-fade {
+  background: linear-gradient(180deg, #f4f6fb 0%, #b9c2d8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glass panel */
+.cosmic-glass {
+  background: linear-gradient(
+    160deg,
+    rgba(20, 24, 42, 0.82) 0%,
+    rgba(8, 10, 22, 0.9) 100%
+  );
+  border: 1px solid rgba(150, 170, 220, 0.14);
+  box-shadow:
+    0 30px 80px -30px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(200, 210, 255, 0.06);
+  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+}
+
+/* Animated entrance */
+@keyframes cosmic-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cosmic-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.animate-rise {
+  animation: cosmic-rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade {
+  animation: cosmic-fade 1.4s ease both;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 3.4s ease-in-out infinite;
+}
+
+/* Custom scrollbar inside panels */
+.cosmic-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.cosmic-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.cosmic-scroll::-webkit-scrollbar-thumb {
+  background: rgba(150, 170, 220, 0.2);
+  border-radius: 6px;
+}
+
+/* Visible focus state for keyboard nav */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Reduced motion: neutralize animations */
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-fade,
+  .animate-pulse-ring {
+    animation: none !important;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Vignette overlay over the 3D canvas for cinematic framing */
+.cosmic-vignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 38%,
+    rgba(2, 3, 8, 0.30) 78%,
+    rgba(1, 1, 4, 0.68) 100%
+  );
+  z-index: 5;
+}
