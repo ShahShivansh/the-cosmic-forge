@@ -159,25 +159,96 @@ export function AchievementsPanel() {
   );
 }
 
+// export function ContactPanel() {
+//   return (
+//     <div>
+//       <PanelHeader eyebrow="05 · Contact Me" title="Step through the gateway" />
+//       <p className="text-slate-300/90 leading-relaxed mb-6">
+//         The best way to reach me is through the channels below. I&apos;m open to collaboration on
+//         hardware, sensing, and software projects.
+//       </p>
+//       <div className="space-y-3">
+//         <LinkButton href={LINKS.github} primary>
+//           <Github size={16} /> GitHub — @ShahShivansh
+//         </LinkButton>
+//         <br />
+//         <LinkButton href={LINKS.linkedin}>
+//           <Linkedin size={16} /> LinkedIn — shah-shivansh
+//         </LinkButton>
+//       </div>
+//       <p className="text-slate-500/70 text-xs mt-6 leading-relaxed">
+//         No email address is listed here to keep this channel intentional. Reach out on LinkedIn.
+//       </p>
+//     </div>
+//   );
+// }
+
 export function ContactPanel() {
   return (
     <div>
-      <PanelHeader eyebrow="05 · Contact Me" title="Step through the gateway" />
+      <PanelHeader
+        eyebrow="05 · Contact Me"
+        title="Let's create something meaningful"
+      />
+
       <p className="text-slate-300/90 leading-relaxed mb-6">
-        The best way to reach me is through the channels below. I&apos;m open to collaboration on
-        hardware, sensing, and software projects.
+        Every meaningful project starts with a conversation.
+        Whether you have an interesting idea, an opportunity,
+        or simply want to discuss technology, I'd love to hear from you.
       </p>
-      <div className="space-y-3">
-        <LinkButton href={LINKS.github} primary>
-          <Github size={16} /> GitHub — @ShahShivansh
-        </LinkButton>
-        <br />
-        <LinkButton href={LINKS.linkedin}>
-          <Linkedin size={16} /> LinkedIn — shah-shivansh
+
+      {/* Primary email contact */}
+      <div className="cosmic-glass rounded-xl p-5 border border-cyan-400/20 mb-5">
+        <div className="flex items-center gap-3 mb-2">
+          <Mail size={20} className="text-cyan-300" />
+          <h3 className="font-display text-xl text-slate-100">
+            Get in touch
+          </h3>
+        </div>
+
+        <p className="text-slate-400 text-sm mb-4">
+          The best way to reach me for collaborations and opportunities.
+        </p>
+
+        <LinkButton href="mailto:shahshivansh2006@gmail.com" primary>
+          <Mail size={16} /> Send me an email
         </LinkButton>
       </div>
-      <p className="text-slate-500/70 text-xs mt-6 leading-relaxed">
-        No email address is listed here to keep this channel intentional. Reach out on LinkedIn.
+
+      {/* Social profiles */}
+      <h3 className="text-xs font-mono-cosmic uppercase tracking-[0.2em] text-cyan-200/70 mb-3">
+        Find me elsewhere
+      </h3>
+
+      <div className="flex flex-col gap-3">
+        <LinkButton href={LINKS.github}>
+          <Github size={16} /> GitHub — @ShahShivansh
+          <ExternalLink size={13} />
+        </LinkButton>
+
+        <LinkButton href={LINKS.linkedin}>
+          <Linkedin size={16} /> LinkedIn — Shivansh Shah
+          <ExternalLink size={13} />
+        </LinkButton>
+      </div>
+
+      {/* Collaboration interests */}
+      <div className="mt-7 pt-5 border-t border-slate-700/30">
+        <p className="text-xs font-mono-cosmic uppercase tracking-[0.2em] text-slate-500 mb-3">
+          Open to conversations about
+        </p>
+
+        <div className="flex flex-wrap gap-2">
+          <Pill>AI / ML</Pill>
+          <Pill tone="gold">IoT & Hardware</Pill>
+          <Pill tone="violet">Cybersecurity</Pill>
+          <Pill>Software Engineering</Pill>
+          <Pill tone="gold">Hackathons</Pill>
+        </div>
+      </div>
+
+      <p className="text-slate-500/70 text-xs mt-5">
+        Good ideas become better when people build them together.
       </p>
     </div>
   );
